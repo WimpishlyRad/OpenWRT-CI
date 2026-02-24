@@ -94,7 +94,6 @@ jobs:
 
       - name: Clone Code
         run: |
-          rm -rf ./wrt/package
           git clone --depth=1 --single-branch --branch $WRT_BRANCH $WRT_REPO ./wrt/
 
           cd ./wrt/ && echo "WRT_HASH=$(git log -1 --pretty=format:'%h')" >> $GITHUB_ENV
@@ -107,6 +106,7 @@ jobs:
 
       - name : Add Kiddin9's Packages
         run : |
+          cd ./wrt/
           echo "src-git kwrt https://github.com/kiddin9/kwrt-packages.git" >> feeds.conf.default
           
       - name: Check Scripts
