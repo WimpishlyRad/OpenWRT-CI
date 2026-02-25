@@ -75,11 +75,6 @@ UPDATE_PACKAGE "quickfile" "sbwml/luci-app-quickfile" "main"
 UPDATE_PACKAGE "viking" "VIKINGYFY/packages" "main" "" "luci-app-timewol luci-app-wolplus"
 UPDATE_PACKAGE "vnt" "lmq8267/luci-app-vnt" "main"
 
-# 第一步：下载网页界面部分，并改名为 turboacc-ui (避免名字冲突)
-UPDATE_PACKAGE "turboacc-core" "chenmozhijin/turboacc" "luci" "name"
-
-# 第二步：下载核心加速部分，并改名为 turboacc-core (避免名字冲突)
-UPDATE_PACKAGE "turboacc-dependency" "chenmozhijin/turboacc" "package" "name"
 
 
 #更新软件包版本
