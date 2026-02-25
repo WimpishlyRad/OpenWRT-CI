@@ -76,6 +76,7 @@ UPDATE_PACKAGE "viking" "VIKINGYFY/packages" "main" "" "luci-app-timewol luci-ap
 UPDATE_PACKAGE "vnt" "lmq8267/luci-app-vnt" "main"
 
 UPDATE_PACKAGE "turboacc" "chenmozhijin/turboacc" "luci"
+UPDATE_PACKAGE "turboacc" "chenmozhijin/turboacc" "package"
 
 
 #更新软件包版本
