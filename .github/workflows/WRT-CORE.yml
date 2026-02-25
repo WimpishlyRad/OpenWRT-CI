@@ -104,11 +104,6 @@ jobs:
             sed -i '/.cn\//d; /tencent/d; /aliyun/d' "$PROJECT_MIRRORS_FILE"
           fi
 
-      - name : Add Kiddin9's Packages
-        run : |
-          cd ./wrt/
-          echo "src-git kwrt https://github.com/kiddin9/kwrt-packages.git" >> feeds.conf.default
-          
       - name: Check Scripts
         run: |
           find ./ -maxdepth 3 -type f -iregex ".*\(txt\|sh\)$" -exec dos2unix {} \; -exec chmod +x {} \;
@@ -159,8 +154,9 @@ jobs:
       - name: Custom Packages
         run: |
           cd ./wrt/package/
-          $GITHUB_WORKSPACE/Scripts/Handles.sh
 
+          $GITHUB_WORKSPACE/Scripts/Packages.sh
+          $GITHUB_WORKSPACE/Scripts/Handles.sh
 
       - name: Custom Settings
         run: |
