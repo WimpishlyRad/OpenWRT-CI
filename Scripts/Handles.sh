@@ -4,37 +4,6 @@
 
 PKG_PATH="$GITHUB_WORKSPACE/wrt/package/"
 
-# 1. 定义变量
-ROOT_DIR="$GITHUB_WORKSPACE/wrt"
-TURBO_SCRIPT_PATH="$ROOT_DIR/add_turboacc.sh" # 注意加上后缀 .sh
-TURBO_REPO_URL="https://raw.githubusercontent.com/mufeng05/turboacc/main/add_turboacc.sh"
-
-# 2. 进入源码根目录并下载脚本
-cd $ROOT_DIR
-
-echo "正在下载 add_turboacc.sh..."
-if curl -sSL -o "$TURBO_SCRIPT_PATH" "$TURBO_REPO_URL"; then # 使用变量
-    echo "下载成功"
-else
-    echo "下载失败，检查网络或URL"
-    exit 1
-fi
-
-# 3. 赋予执行权限并运行
-chmod +x "$TURBO_SCRIPT_PATH" # 使用变量
-
-echo "正在执行 TurboACC 补丁脚本..."
-if bash "$TURBO_SCRIPT_PATH"; then # 使用变量
-    echo "TurboACC 脚本执行成功"
-else
-    echo "警告：TurboACC 脚本执行出错"
-fi
-
-rm -f "$TURBO_SCRIPT_PATH" # 使用变量
-
-echo "Turbo ACC 补丁处理完成"
-
-
 #预置HomeProxy数据
 if [ -d *"homeproxy"* ]; then
 	echo " "
@@ -139,4 +108,30 @@ if [ -d *"luci-app-netspeedtest"* ]; then
 	sed -i 's/ca-certificates/ca-bundle/g' ./speedtest-cli/Makefile
 
 	cd $PKG_PATH && echo "netspeedtest has been fixed!"
+fi
+
+# 1. 定义变量
+ROOT_DIR="$GITHUB_WORKSPACE/wrt"
+TURBO_SCRIPT_PATH="$ROOT_DIR/add_turboacc.sh" # 注意加上后缀 .sh
+TURBO_REPO_URL="https://raw.githubusercontent.com/mufeng05/turboacc/main/add_turboacc.sh"
+
+# 2. 进入源码根目录并下载脚本
+cd $ROOT_DIR
+
+echo "正在下载 add_turboacc.sh..."
+if curl -sSL -o "$TURBO_SCRIPT_PATH" "$TURBO_REPO_URL"; then # 使用变量
+    echo "下载成功"
+else
+    echo "下载失败，检查网络或URL"
+    exit 1
+fi
+
+# 3. 赋予执行权限并运行
+chmod +x "$TURBO_SCRIPT_PATH" # 使用变量
+
+echo "正在执行 TurboACC 补丁脚本..."
+if bash "$TURBO_SCRIPT_PATH"; then # 使用变量
+    echo "TurboACC 脚本执行成功"
+else
+    echo "警告：TurboACC 脚本执行出错"
 fi
