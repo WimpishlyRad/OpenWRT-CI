@@ -113,5 +113,5 @@ fi
 #添加turboacc测试
 ROOT_PATH="$GITHUB_WORKSPACE/wrt/"
 cd $ROOT_PATH 
-curl -sSL https://raw.githubusercontent.com/mufeng05/turboacc/main/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
+curl -sSL https://raw.githubusercontent.com/mufeng05/turboacc/main/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh snapshot
 echo "[✓] 脚本执行完毕！请检查输出日志确认是否成功。"
