@@ -81,6 +81,7 @@ UPDATE_PACKAGE "vnt" "lmq8267/luci-app-vnt" "main"
 UPDATE_PACKAGE "airpi3000m" "LianXia233/luci-app-airpi3000m-fancontrol" "main"
 UPDATE_PACKAGE "h5000m" "LianXia233/luci-app-h5000m-netmode" "main"
 UPDATE_PACKAGE "qmodem-generic" "LianXia233/luci-app-qmodem-generic" "main"
+UPDATE_PACKAGE "substore" "XiaoHaiSly/OpenWrt-SubStore" "main"
 
 #更新软件包版本
 UPDATE_VERSION() {
