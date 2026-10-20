@@ -122,14 +122,10 @@ CONFIG_PACKAGE_usb-modeswitch=y
 CONFIG_PACKAGE_usbmuxd=y
 CONFIG_PACKAGE_usbutils=y
 CONFIG_PACKAGE_xz-utils=y
-
-
-#插件调整
+#自定义调整
 CONFIG_PACKAGE_luci-app-nikki=y
 CONFIG_PACKAGE_ttyd=y
 CONFIG_PACKAGE_luci-app-ttyd=y
 CONFIG_PACKAGE_luci-app-substore=y
-# 添加 libpcap 核心库
 CONFIG_PACKAGE_libpcap=y
-#添加kmod-netem
 CONFIG_PACKAGE_kmod-netem=y
