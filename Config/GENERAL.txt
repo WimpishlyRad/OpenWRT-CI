@@ -129,14 +129,7 @@ CONFIG_PACKAGE_luci-app-nikki=y
 CONFIG_PACKAGE_ttyd=y
 CONFIG_PACKAGE_luci-app-ttyd=y
 CONFIG_PACKAGE_luci-app-substore=y
-
 # 添加 libpcap 核心库
 CONFIG_PACKAGE_libpcap=y
-CONFIG_PACKAGE_libpcap-dev=y
-CONFIG_PACKAGE_ipset=y
 #添加kmod-netem
 CONFIG_PACKAGE_kmod-netem=y
-#添加打印机
-CONFIG_PACKAGE_kmod-usb-printer=y
-CONFIG_PACKAGE_luci-app-usb-printer=y
-
