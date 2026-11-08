@@ -42,12 +42,24 @@ if [ -n "$WRT_PACKAGE" ]; then
 	echo -e "$WRT_PACKAGE" >> ./.config
 fi
 
+
 #高通平台调整
 DTS_PATH="./target/linux/qualcommax/dts/"
+IMAGE_FILE="./target/linux/qualcommax/image/ipq60xx.mk"
+
 if [[ "${WRT_TARGET^^}" == *"QUALCOMMAX"* ]]; then
-	#无WIFI配置调整Q6大小
-	if [[ "$WRT_WIFI" == "WIFI-NO" ]]; then
-		find $DTS_PATH -type f ! -iname '*nowifi*' -exec sed -i 's/ipq\(6018\|8074\).dtsi/ipq\1-nowifi.dtsi/g' {} +
-		echo "qualcommax set up nowifi successfully!"
-	fi
+    #无WIFI配置调整Q6大小
+    if [[ "$WRT_WIFI" == "WIFI-NO" ]]; then
+        find "$DTS_PATH" -type f ! -iname '*nowifi*' -exec sed -i 's/ipq\(6018\|8074\).dtsi/ipq\1-nowifi.dtsi/g' {} +
+        echo "qualcommax set up nowifi successfully!"
+    fi
+
+    #调整京东云RE-CS-07内核大小
+    if [ -f "$IMAGE_FILE" ]; then
+        sed -i '/^define Device\/jdcloud_re-cs-07/,/^endef/ {
+            s/KERNEL_SIZE := 6144k/KERNEL_SIZE := 12288k/
+        }' "$IMAGE_FILE"
+        echo "jdcloud_re-cs-07 kernel size adjusted!"
+    fi
 fi
+
