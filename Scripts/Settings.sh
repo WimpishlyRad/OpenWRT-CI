@@ -63,3 +63,21 @@ if [[ "${WRT_TARGET^^}" == *"QUALCOMMAX"* ]]; then
     fi
 fi
 
+# 内置 Nikki Geosite.dat
+GEO_SITE_URL="https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat"
+GEO_SITE_TMP="/tmp/geosite.dat"
+
+echo "Downloading Nikki Geosite.dat..."
+
+if curl -fL --retry 3 --connect-timeout 15 \
+    "$GEO_SITE_URL" -o "$GEO_SITE_TMP"; then
+
+    install -D -m 644 "$GEO_SITE_TMP" ./files/etc/nikki/run/Geosite.dat
+    rm -f "$GEO_SITE_TMP"
+
+    echo "Nikki Geosite.dat embedded successfully!"
+else
+    rm -f "$GEO_SITE_TMP"
+    echo "ERROR: Geosite.dat download failed!"
+    exit 1
+fi
